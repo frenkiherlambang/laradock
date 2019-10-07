@@ -743,6 +743,20 @@ RUN if [ ${INSTALL_FFMPEG} = true ]; then \
 
 RUN set -xe; php -v | head -n 1 | grep -q "PHP ${LARADOCK_PHP_VERSION}."
 
+#-------------
+# installing wkhtmltopdf
+# ---------------
+RUN apt-get install -y wget
+
+# libssl1.0.0
+RUN wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.0.0_1.0.2g-1ubuntu4.15_amd64.deb -P /var/www/downloads
+RUN dpkg -i /var/www/downloads/libssl1.0.0_1.0.2g-1ubuntu4.15_amd64.deb
+
+# libssl-dev
+RUN wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl-dev_1.0.2g-1ubuntu4.15_amd64.deb -P /var/www/downloads
+RUN dpkg -i /var/www/downloads/libssl-dev_1.0.2g-1ubuntu4.15_amd64.deb
+
+
 #
 #--------------------------------------------------------------------------
 # Final Touch

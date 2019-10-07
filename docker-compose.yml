@@ -55,6 +55,7 @@ services:
       build:
         context: ./workspace
         args:
+          - INSTALL_WKHTMLTOPDF=true
           - LARADOCK_PHP_VERSION=${PHP_VERSION}
           - LARADOCK_PHALCON_VERSION=${PHALCON_VERSION}
           - INSTALL_SUBVERSION=${WORKSPACE_INSTALL_SUBVERSION}
@@ -145,6 +146,7 @@ services:
       build:
         context: ./php-fpm
         args:
+          - INSTALL_WKHTMLTOPDF=true
           - LARADOCK_PHP_VERSION=${PHP_VERSION}
           - LARADOCK_PHALCON_VERSION=${PHALCON_VERSION}
           - INSTALL_XDEBUG=${PHP_FPM_INSTALL_XDEBUG}

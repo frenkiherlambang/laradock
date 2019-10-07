@@ -1105,7 +1105,15 @@ RUN if [ ${INSTALL_GNU_PARALLEL} = true ]; then \
 ###########################################################################
 
 RUN set -xe; php -v | head -n 1 | grep -q "PHP ${LARADOCK_PHP_VERSION}."
+###########################################################################
+# WKHTMLTOPDF
+###########################################################################
+ARG INSTALL_WKHTMLTOPDF=true
 
+RUN if [ ${INSTALL_WKHTMLTOPDF} = true ]; then \
+  apt-get -y install fontconfig libxext6 libxrender1 xfonts-utils \
+  libfontenc1 x11-common xfonts-75dpi xfonts-base install  wkhtmltopdf \
+;fi
 #
 #--------------------------------------------------------------------------
 # Final Touch
